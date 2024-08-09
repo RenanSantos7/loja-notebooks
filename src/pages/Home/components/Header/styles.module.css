@@ -13,8 +13,9 @@
     justify-content: space-between;
 }
 
-.leftSide {
-    gap: 2rem
+.leftSide, .rightSide {
+    gap: 2rem;
+    align-items: center;
 }
 
 .searchBar {

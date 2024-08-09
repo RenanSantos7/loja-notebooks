@@ -1,0 +1,15 @@
+.container {
+    width: var(--pageSize);
+    margin-inline: auto;
+    flex-direction: column;
+}
+
+.table {
+    width: 100%;
+    height: min(500px, max-content);
+}
+
+.btnContainer {
+    gap: 1rem;
+    justify-content: flex-end;
+}

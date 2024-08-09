@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logoText {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    flex-direction: column;
+    font-size: .8rem;
+}
+
+.textPrimary {
+    font-size: 2em;
+    font-weight: 600;
+}

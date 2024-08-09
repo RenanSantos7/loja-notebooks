@@ -1,7 +1,12 @@
-import { FaBars, FaSearch } from "react-icons/fa";
+import {
+    FaArrowRightFromBracket as FaLogout,
+    FaBars,
+    FaMagnifyingGlass as FaSearch,
+    FaRegCircleUser
+} from "react-icons/fa6";
 
 import styles from './styles.module.css'
-import Logo from "../../../components/Logo";
+import Logo from "../../../../components/Logo";
 
 interface HeaderProps {
     
@@ -25,7 +30,10 @@ export default function Header(props: HeaderProps) {
                     </div>
                 </div>
 
-                <div className={styles.rightSide}></div>
+                <div className={styles.rightSide}>
+                    <FaRegCircleUser size={28} />
+                    <FaLogout size={20} />
+                </div>
             </div>
         </div>
     );
