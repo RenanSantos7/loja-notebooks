@@ -1,0 +1,22 @@
+.text {
+    line-height: 1.2;
+    margin-bottom: 1em;
+}
+
+.form {
+    background-color: var(--surface);
+    border-radius: .5rem;
+    display: flex;
+    overflow: hidden;
+    
+    input {
+        padding: .5rem;
+        flex: 1;
+    }
+    
+    button {
+        background-color: var(--azul1);
+        color: var(--surface);
+        padding: .5rem 1rem;
+    }
+}

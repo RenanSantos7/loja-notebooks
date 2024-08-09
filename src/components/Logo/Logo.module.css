@@ -1,0 +1,10 @@
+.logo {
+    font-family: 'Orbitron';
+    font-weight: 500;
+    
+    .tech {
+        font-family: 'Orbitron';
+        font-weight: 700;
+        opacity: 0.65;
+    }
+}

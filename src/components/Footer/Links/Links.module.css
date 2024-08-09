@@ -1,0 +1,24 @@
+.links {
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+
+        li {
+            display: grid;
+            grid-template-columns: 16px auto;
+            gap: .25rem;
+            align-items: center;
+            transition: all .6s ease-in-out;
+
+            &::before {
+                content: url('../../../assets/caret-right-solid.svg');
+            }
+
+            &:hover {
+                color: var(--azul1);
+            }
+        }
+    }
+}

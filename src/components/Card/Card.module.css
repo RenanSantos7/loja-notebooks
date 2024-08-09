@@ -1,0 +1,41 @@
+.card {
+    width: 258px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--surface);
+    border: 1px solid var(--cinza1);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 8px rgba(0,0,0,0.06);
+
+    img {
+        height: 220px;
+        object-fit: contain;
+    }
+
+    h3 {
+        color: var(--azul2);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        height: 60px;
+        overflow: hidden;
+    }
+}
+
+.precoContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: .5ch;
+}
+
+.cifrao {
+    font-weight: bold;
+    color: var(--azul2);
+}
+
+.preco {
+    font-size: 1.25em;
+    color: var(--azul1);
+    font-weight: 600;
+}

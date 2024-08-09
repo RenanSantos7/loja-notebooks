@@ -1,0 +1,10 @@
+.about {
+    p {
+        line-height: 1.2;
+        margin-bottom: 1em;
+    }
+    
+    b {
+        color: var(--azul1);
+    }
+}

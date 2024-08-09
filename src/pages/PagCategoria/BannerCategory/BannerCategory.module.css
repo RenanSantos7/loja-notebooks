@@ -1,0 +1,12 @@
+.banner {
+	background-color: var(--azul1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    
+    .image {
+        width: 200px;
+    }
+}

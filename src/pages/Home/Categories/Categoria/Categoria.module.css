@@ -1,0 +1,22 @@
+.categoria {
+    width: 250px;
+    height: 175px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--cinza1);
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--surface);
+    transition: all .6s ease-in-out;
+
+    &:hover {
+        -webkit-translate: -2px -2px;
+        translate: -2px -2px;
+        scale: 1.05;
+        box-shadow: 2px 2px 18px rgba(0,0,0,0.15);
+    }
+
+    img, span {
+        position: relative;
+        top: -100px;
+    }
+}
