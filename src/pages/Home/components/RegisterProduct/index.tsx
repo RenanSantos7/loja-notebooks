@@ -2,7 +2,6 @@ import { Button, Modal } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { IoMdClose } from 'react-icons/io';
 
-import { IProduct } from '../../../../types/types';
 import { Title1 } from '../../../../components/tipografia';
 import { useDataContext } from '../../../../contexts/DataContext';
 import FlexLine from '../../../../components/FlexLine';
@@ -13,7 +12,7 @@ import styles from './styles.module.css';
 interface RegisterProductProps {}
 
 export default function RegisterProduct(props: RegisterProductProps) {
-	const { isModalOpened, setModalOpened } = useDataContext();
+	const { handleRegisterProduct, isModalOpened, setModalOpened } = useDataContext();
 
 	return (
 		<Modal open={isModalOpened} onClose={() => setModalOpened(false)}>
@@ -33,11 +32,12 @@ export default function RegisterProduct(props: RegisterProductProps) {
 						price: 0,
 						stock: 0,
 					}}
-                    onSubmit={(values, { setSubmitting }) => {
-                        console.log(values);
-                        setSubmitting(false);
-                        setModalOpened(false);
-                    }}
+					onSubmit={(values, { setSubmitting }) => {
+						console.log(values);
+						handleRegisterProduct(values);
+						setSubmitting(false);
+						setModalOpened(false);
+					}}
 				>
 					{formik => (
 						<Form onSubmit={formik.handleSubmit}>
@@ -50,7 +50,6 @@ export default function RegisterProduct(props: RegisterProductProps) {
 								<InputField
 									name='description'
 									label='Descrição do produto'
-									multiline
 								/>
 
 								<InputField

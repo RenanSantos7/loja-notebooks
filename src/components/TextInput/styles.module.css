@@ -20,3 +20,9 @@
 .textara {
     height: max(20px, max-content);
 }
+
+.errorMsg {
+    color: var(--errorcolor);
+    font-style: italic;
+    font-size: .8em;
+}

@@ -10,7 +10,7 @@ import { IProduct } from '../types/types';
 
 interface IDataContext {
 	products: IProduct[];
-	setProducts: Dispatch<SetStateAction<IProduct[]>>;
+	handleRegisterProduct: (data: Omit<IProduct, 'id'>) => void;
 	isModalOpened: boolean;
 	setModalOpened: Dispatch<SetStateAction<boolean>>;
 }
@@ -45,11 +45,23 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 	const [products, setProducts] = useState<IProduct[]>(produtos);
 	const [isModalOpened, setModalOpened] = useState(false);
 
+	function handleRegisterProduct(data: Omit<IProduct, 'id'>) {
+		const ids = products.map(product => product.id);
+		const lastId = ids.reduce((a, b) => Math.max(a, b), 0);
+		const nextId = lastId + 1;
+		const newProduct = { id: nextId, ...data };
+		setProducts(prev => [...prev, newProduct]);
+	}
+
 	return (
-		<DataContext.Provider value={{
-			products, setProducts,
-			isModalOpened, setModalOpened
-		}}>
+		<DataContext.Provider
+			value={{
+				products,
+				handleRegisterProduct,
+				isModalOpened,
+				setModalOpened,
+			}}
+		>
 			{children}
 		</DataContext.Provider>
 	);
