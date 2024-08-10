@@ -2,12 +2,15 @@ import { Button, Icon, Popover, styled } from '@mui/material';
 import { useState } from 'react';
 import { MdEdit, MdMoreVert, MdDelete } from 'react-icons/md';
 import styles from './styles.module.css'
+import { useDataContext } from '../../../../contexts/DataContext';
 
 interface AcoesProps {
 	id: number;
 }
 
 export default function Acoes({ id }: AcoesProps) {
+	const { deleteProduct } = useDataContext();
+	
 	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -47,7 +50,7 @@ export default function Acoes({ id }: AcoesProps) {
 	
 					<footer className={styles.footer}>
 						<Button
-							onClick={() => console.log('produto excluido')}
+							onClick={() => deleteProduct(id)}
 							startIcon={<MdDelete />}
 							sx={{ color: '#d32f2f' }}
 						>

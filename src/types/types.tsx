@@ -5,3 +5,16 @@ export interface IProduct {
 	price: number;
 	stock: number;
 }
+
+export interface IUser {
+	name: string;
+	taxNumber: string;
+	mail: string;
+	phone: string;
+	password: string;
+}
+
+export interface LoginData {
+	taxNumber: string;
+	password: string;
+}

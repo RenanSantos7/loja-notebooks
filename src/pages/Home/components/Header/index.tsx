@@ -7,12 +7,10 @@ import {
 
 import styles from './styles.module.css'
 import Logo from "../../../../components/Logo";
+import FlexLine from "../../../../components/FlexLine";
+import { Link } from "react-router-dom";
 
-interface HeaderProps {
-    
-};
-
-export default function Header(props: HeaderProps) {
+export default function Header() {
     return (
         <div className={styles.header}>
             <div className={styles.container}>
@@ -31,7 +29,10 @@ export default function Header(props: HeaderProps) {
                 </div>
 
                 <div className={styles.rightSide}>
-                    <FaRegCircleUser size={28} />
+                    <FlexLine>
+                        <Link to='/login'>Login</Link>
+                        <FaRegCircleUser size={28} />
+                    </FlexLine>
                     <FaLogout size={20} />
                 </div>
             </div>

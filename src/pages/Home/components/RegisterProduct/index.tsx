@@ -12,7 +12,7 @@ import styles from './styles.module.css';
 interface RegisterProductProps {}
 
 export default function RegisterProduct(props: RegisterProductProps) {
-	const { handleRegisterProduct, isModalOpened, setModalOpened } = useDataContext();
+	const { createProduct, isModalOpened, setModalOpened } = useDataContext();
 
 	return (
 		<Modal open={isModalOpened} onClose={() => setModalOpened(false)}>
@@ -23,7 +23,9 @@ export default function RegisterProduct(props: RegisterProductProps) {
 					style={{ marginBottom: '1rem' }}
 				>
 					<Title1>Novo produto</Title1>
-					<IoMdClose />
+					<button onClick={() => setModalOpened(false)}>
+						<IoMdClose />
+					</button>
 				</FlexLine>
 				<Formik
 					initialValues={{
@@ -34,7 +36,7 @@ export default function RegisterProduct(props: RegisterProductProps) {
 					}}
 					onSubmit={(values, { setSubmitting }) => {
 						console.log(values);
-						handleRegisterProduct(values);
+						createProduct(values);
 						setSubmitting(false);
 						setModalOpened(false);
 					}}

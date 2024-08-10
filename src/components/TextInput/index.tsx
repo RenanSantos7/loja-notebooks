@@ -6,7 +6,7 @@ import FlexLine from '../FlexLine';
 interface TextInputProps {
 	label: string;
 	name: string;
-	type?: 'text' | 'number' | 'textarea';
+	type?: 'text' | 'number' | 'email' | 'tel' |'password' | 'textarea';
 }
 
 export default function InputField({

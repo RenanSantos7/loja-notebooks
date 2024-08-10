@@ -4,7 +4,7 @@ import RegisterProduct from './components/RegisterProduct';
 
 export default function Home() {
 	return (
-		<div style={{ flexDirection: 'column' }}>
+		<div>
 			<Header />
 			<Dashboard />
 			<RegisterProduct />

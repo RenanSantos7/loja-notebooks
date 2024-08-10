@@ -70,7 +70,7 @@ export default function Dashboard() {
 							))
 						) : (
 							<TableRow>
-								<TableCell>Nenhum produto encontrado</TableCell>
+								<TableCell colSpan={5}>Nenhum produto encontrado. Você precisa estar logado para visualizar os produtos.</TableCell>
 							</TableRow>
 						)}
 					</TableBody>

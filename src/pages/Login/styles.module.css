@@ -1,0 +1,19 @@
+.form {
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+.btnContainer {
+    margin-block: 1rem;
+    align-items: center;
+}
+
+.msg {
+    text-align: center;
+
+    a {
+        color: var(--azul);
+        font-weight: 600;
+    }
+}
