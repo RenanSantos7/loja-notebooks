@@ -9,7 +9,7 @@ interface AcoesProps {
 }
 
 export default function Acoes({ id }: AcoesProps) {
-	const { deleteProduct } = useDataContext();
+	const { deleteProduct, selectProductToEdit } = useDataContext();
 	
 	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
@@ -21,8 +21,8 @@ export default function Acoes({ id }: AcoesProps) {
 		setAnchorEl(null);
 	};
 
-	function handleEdit(id: number) {
-		console.log(id)
+	function handleEdit() {
+		selectProductToEdit(id)
 	}
 
 	return (
@@ -42,7 +42,7 @@ export default function Acoes({ id }: AcoesProps) {
 			>
 				<div className={styles.container}>
 					<Button
-						onClick={() => handleEdit(id)}
+						onClick={handleEdit}
 						startIcon={<MdEdit />}
 					>
 						Editar

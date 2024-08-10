@@ -18,6 +18,10 @@ interface IDataContext {
 	login: (data: LoginData) => void;
 	deleteProduct: (id: number) => void;
 	editProduct: (data: IProduct) => void;
+	productToEdit: IProduct;
+	setProductToEdit: Dispatch<SetStateAction<IProduct>>;
+	selectProductToEdit: (id: number) => void;
+	loading: boolean;
 }
 
 const DataContext = createContext<IDataContext>(null);
@@ -26,6 +30,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 	const [products, setProducts] = useState<IProduct[]>([]);
 	const [isModalOpened, setModalOpened] = useState(false);
 	const [token, setToken] = useState('');
+	const [productToEdit, setProductToEdit] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	function handleRegisterProduct(data: Omit<IProduct, 'id'>) {
 		const ids = products.map(product => product.id);
@@ -33,6 +39,10 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 		const nextId = lastId + 1;
 		const newProduct = { id: nextId, ...data };
 		setProducts(prev => [...prev, newProduct]);
+	}
+
+	function selectProductToEdit(id: number) {
+		setProductToEdit(products.find(item => item.id === id))
 	}
 
 	async function registerUser(data: IUser) {
@@ -83,7 +93,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
 	async function getProducts() {
 		if (!token) return;
-
+		
 		const options = {
 			method: 'GET',
 			headers: {
@@ -91,6 +101,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 				Authorization: `Bearer ${token}`,
 			},
 		};
+
+		setLoading(true);
 
 		try {
 			const response = await fetch(
@@ -101,6 +113,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 			if (response.ok) {
 				const data = await response.json();
 				setProducts(data.data.products);
+				setLoading(false);
 			} else {
 				throw new Error(
 					`Erro na requisição dos produtos: ${response.status} ${response.statusText}`,
@@ -190,10 +203,11 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 				// console.log(data);
 				alert('Produto modificado');
 				setProducts(prev =>
-					prev.map(product =>
-						product.id === data.id ? data : product,
+					prev.map(item =>
+						item.id === data.id ? data : item,
 					),
 				);
+				setProductToEdit(null);
 			} else {
 				console.error(
 					'Erro ao modificar produto:',
@@ -208,12 +222,12 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
 	useEffect(() => {
 		getProducts();
-		console.log(token);
 	}, [token]);
 
 	return (
 		<DataContext.Provider
 			value={{
+				loading,
 				products,
 				createProduct,
 				isModalOpened,
@@ -221,7 +235,10 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 				registerUser,
 				login,
 				deleteProduct,
-				editProduct
+				editProduct,
+				productToEdit,
+				setProductToEdit,
+				selectProductToEdit
 			}}
 		>
 			{children}
