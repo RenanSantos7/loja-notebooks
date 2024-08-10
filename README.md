@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Loja de notebooks
 
-Currently, two official plugins are available:
+Este é um projeto em React desenvolvido como uma das fases do processo seletivo para a vaga de desenvolvedor Front-end Júnior da empresa T-Alpha.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Material UI](https://mui.com/material-ui/getting-started/)
+- [Formik](https://formik.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Como rodar localmente
 
-- Configure the top-level `parserOptions` property like this:
+Este projeto foi criado usando [Vite](https://vite.dev), portanto você pode seguir a documentação desse script para fazer deploy do site localmente.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+No caso, primeiro você precisará baixar o projeto com executando o seguinte comando no terminal:
+
+```
+git clone https://github.com/RenanSantos7/loja-notebooks
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Agora, instale as dependências:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm i
+```
+
+E por fim rode o projeto com:
+
+```
+npm run dev
+```
+
+O terminal mostrará o endereço para acessar o site no qual você pode clicar para abri-lo. Você também pode apertar `o` e depois `Enter` para fazer isso.
+
+## Licensa
+
+O projeto está disponível publicamente com a licença [MIT](./LICENSE)
