@@ -12,4 +12,5 @@
 .btnContainer {
     gap: 1rem;
     justify-content: flex-end;
+    flex-direction: row;
 }

@@ -21,14 +21,17 @@ const TableHeaderCell = styled(TableCell)(() => ({
 }))
 
 export default function Dashboard() {
-	const { products } = useDataContext();
+	const { products, setModalOpened } = useDataContext();
 
 	return (
 		<div className={styles.container}>
 			<Title1 style={{ paddingBlock: '1rem' }}>Dashboard</Title1>
             
             <div className={styles.btnContainer}>
-                <Button variant='contained'>Novo produto</Button>
+				<Button
+					variant='contained'
+					onClick={() => setModalOpened(true)}
+				>Novo produto</Button>
             </div>
 
 			<TableContainer

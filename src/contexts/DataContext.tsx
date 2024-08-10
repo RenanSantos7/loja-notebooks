@@ -11,6 +11,8 @@ import { IProduct } from '../types/types';
 interface IDataContext {
 	products: IProduct[];
 	setProducts: Dispatch<SetStateAction<IProduct[]>>;
+	isModalOpened: boolean;
+	setModalOpened: Dispatch<SetStateAction<boolean>>;
 }
 
 const produtos = [
@@ -41,9 +43,13 @@ const DataContext = createContext<IDataContext>(null);
 
 export default function DataProvider({ children }: { children: ReactNode }) {
 	const [products, setProducts] = useState<IProduct[]>(produtos);
+	const [isModalOpened, setModalOpened] = useState(false);
 
 	return (
-		<DataContext.Provider value={{ products, setProducts }}>
+		<DataContext.Provider value={{
+			products, setProducts,
+			isModalOpened, setModalOpened
+		}}>
 			{children}
 		</DataContext.Provider>
 	);
