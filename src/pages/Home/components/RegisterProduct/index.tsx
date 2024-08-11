@@ -7,6 +7,7 @@ import { useDataContext } from '../../../../contexts/DataContext';
 import FlexLine from '../../../../components/FlexLine';
 import InputField from '../../../../components/TextInput';
 import Paper from '../../../../components/Paper';
+import productsSchema from '../../../../schemas/products.schema';
 import styles from './styles.module.css';
 
 interface RegisterProductProps {}
@@ -40,6 +41,7 @@ export default function RegisterProduct(props: RegisterProductProps) {
 						setSubmitting(false);
 						setModalOpened(false);
 					}}
+					validationSchema={productsSchema}
 				>
 					{formik => (
 						<Form onSubmit={formik.handleSubmit}>

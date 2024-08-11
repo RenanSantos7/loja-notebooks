@@ -1,13 +1,15 @@
+import { Button } from '@mui/material';
 import { Form, Formik } from 'formik';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { IUser } from '../../types/types';
+import { Title1 } from '../../components/tipografia';
+import { useDataContext } from '../../contexts/DataContext';
+import InputField from '../../components/TextInput';
 import Logo from '../../components/Logo';
 import Paper from '../../components/Paper';
-import { Title1 } from '../../components/tipografia';
-import { IUser } from '../../types/types';
-import InputField from '../../components/TextInput';
+import userSchema from '../../schemas/user.schema';
 import styles from './styles.module.css';
-import { Button } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDataContext } from '../../contexts/DataContext';
 
 export default function Register() {
 	const navigate = useNavigate();
@@ -32,6 +34,7 @@ export default function Register() {
 					password: '',
 				}}
 				onSubmit={handleRegister}
+				validationSchema={userSchema}
 			>
 				{formik => (
 					<Form onSubmit={formik.handleSubmit}>

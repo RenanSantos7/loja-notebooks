@@ -22,6 +22,7 @@ interface IDataContext {
 	setProductToEdit: Dispatch<SetStateAction<IProduct>>;
 	selectProductToEdit: (id: number) => void;
 	loading: boolean;
+	token: string;
 }
 
 const DataContext = createContext<IDataContext>(null);
@@ -238,7 +239,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 				editProduct,
 				productToEdit,
 				setProductToEdit,
-				selectProductToEdit
+				selectProductToEdit,
+				token
 			}}
 		>
 			{children}

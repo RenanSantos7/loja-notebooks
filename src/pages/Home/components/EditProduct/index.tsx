@@ -8,6 +8,7 @@ import FlexLine from '../../../../components/FlexLine';
 import InputField from '../../../../components/TextInput';
 import Paper from '../../../../components/Paper';
 import styles from './styles.module.css';
+import productsSchema from '../../../../schemas/products.schema';
 
 export default function EditProduct() {
 	const { editProduct, productToEdit, setProductToEdit } = useDataContext();
@@ -38,6 +39,7 @@ export default function EditProduct() {
 						setSubmitting(false);
 						setProductToEdit(null);
 					}}
+					validationSchema={productsSchema}
 				>
 					{formik => (
 						<Form onSubmit={formik.handleSubmit}>
