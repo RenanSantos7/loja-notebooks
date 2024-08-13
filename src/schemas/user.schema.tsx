@@ -15,8 +15,8 @@ const userSchema = Yup.object().shape({
 		.required('É necessário fornecer um número telefone.'),
 	password: Yup.string()
 		.matches(
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-_¬;\.])$/,
-			'Sua senha deve ter letras minúsculas e maiúsculas, números e um caractere especial',
+			/^\w{4,16}$/,
+			'Sua senha deve ter entre quatro e dezesseis caracteres alfanuméricos',
 		)
 		.min(8, 'Sua senha deve ter pelo menos 8 caracteres')
 		.max(16, 'Sua senha pode ter no máximo 16 caracteres')
